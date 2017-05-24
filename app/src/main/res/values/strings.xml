@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">newarkTest</string>
+    <string name="lock_door">反锁门</string>
+    <string name="compress_door">压紧门</string>
+    <string name="decompress_door">解压门</string>
+    <string name="open_window">开启天窗</string>
+    <string name="close_window">关闭天窗</string>
+</resources>
