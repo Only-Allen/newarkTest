@@ -77,9 +77,10 @@ public class Communicator {
 //                    if (mCurrentState == null) {
 //                        return;
 //                    }
-                    Intent intent = new Intent(ACTION_STATE);
-                    intent.putExtra(FLAG_GET_STATE, mCurrentState);
-                    mContext.sendBroadcast(intent);
+//                    Intent intent = new Intent(ACTION_STATE);
+//                    intent.putExtra(FLAG_GET_STATE, mCurrentState);
+//                    mContext.sendBroadcast(intent);
+                    mCallback.onUpdateMachineState(mCurrentState);
                     break;
                 default:
             }
@@ -297,7 +298,10 @@ public class Communicator {
 //                queryAllStates();
 //                queryAllWarnings();
                 queryTotalMessage();
-                mCallback.onUpdateMachineState(mNextState);
+                Message msg = Message.obtain();
+                msg.what = HANDLER_CALLBACK;
+                msg.obj = mNextState;
+                mHandler.sendMessage(msg);
             }
         });
         mHandler.sendEmptyMessageDelayed(HANDLER_QUERY, QUERY_INTERVAL);

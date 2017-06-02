@@ -95,6 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mLockDoor.setSelected(true);
                 mCompressDoor.setSelected(false);
                 mDecompressDoor.setSelected(false);
+            } else {
+                mLockDoor.setSelected(false);
+                mCompressDoor.setSelected(false);
+                mDecompressDoor.setSelected(false);
             }
         }
 
@@ -102,12 +106,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (windowState[0]) {
             mOpenWindow.setSelected(true);
             mCloseWindow.setSelected(false);
-        } else if (windowState[1]) {
-            mOpenWindow.setSelected(false);
-            mCloseWindow.setSelected(false);
-        } else {
+        } else if (windowState[2]){
             mOpenWindow.setSelected(false);
             mCloseWindow.setSelected(true);
+        } else {
+            mOpenWindow.setSelected(false);
+            mCloseWindow.setSelected(false);
         }
     }
 }
