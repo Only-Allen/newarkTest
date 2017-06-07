@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onUpdateMachineState(MachineState state) {
+        if (state == null) return;
         boolean[] doorState = state.getDoorState();
         if (doorState[2]) {
             mLockDoor.setSelected(false);
